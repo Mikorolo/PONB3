@@ -3,6 +3,16 @@ Algorithm 3 for PONB university project
 
 ## Testing
 
+### Configuration
+
+```bash
+# Install Flask
+pip install flask
+
+# Run program
+python <program>.py
+```
+
 ```bash
 # Define the URL and JSON payload
 $url = "http://localhost:5000/calculate_weight"
