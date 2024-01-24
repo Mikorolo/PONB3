@@ -13,6 +13,7 @@ GRAVITY = {
     'NEPTUNE': 11.15
 }
 
+
 @app.route('/calculate_weight', methods=['POST'])
 def calculate_weight():
     data = request.get_json()
@@ -21,9 +22,10 @@ def calculate_weight():
 
     if planet not in GRAVITY:
         return jsonify({'error': 'Invalid planet'}), 400
-    earth_weight = weight_on_earth * GRAVITY['EARTH']
-    weight_on_planet = earth_weight / GRAVITY[planet]
-    return jsonify({'weight_on_planet': round(weight_on_planet, 5)})
+
+    weight_on_planet = (weight_on_earth / GRAVITY['EARTH']) * GRAVITY[planet]
+    return jsonify({'weight_on_planet': weight_on_planet})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
